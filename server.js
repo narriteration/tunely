@@ -2,6 +2,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var db = require('./models');
+var controllers = require('./controllers');
+
 
 
 // generate a new express app and call it 'app'
@@ -26,12 +28,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 ///////////////////
 
 
+// GET ALBUMS TODO: CHANGE TO ALBUMS, not books
+// app.get('/api/books', function (req, res) {
+//   // send all books as JSON response
+//   console.log('books index');
+//   res.json(books);
+// });
+//
+
 
 // 1. GET ROUTES
 app.get('/', function (req, res) {
     console.log("Hello Chelsea");
     res.sendFile('views/index.html' , { root : __dirname });
 });
+
+// 1. GET /api
+app.get('/api', controllers.api.index)
 
 
 
