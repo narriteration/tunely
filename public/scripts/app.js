@@ -3,7 +3,6 @@
  * You may edit this file as you see fit.  Try to separate different components
  * into functions and objects as needed.
 
-
  REPLACE WITH SOLUTION USING BACKTICKS. INDEX.HTML SHOULD NOT HAVE AN ALBUM HTML
  *
  */
@@ -11,6 +10,7 @@
 
 /* hard-coded data! */
 var sampleAlbums = [];
+
 sampleAlbums.push({
              artistName: 'Ladyhawke',
              name: 'Ladyhawke',
@@ -37,15 +37,12 @@ sampleAlbums.push({
            });
 /* end of hard-coded data */
 
-
-
-
 $(document).ready(function() {
   console.log('app.js loaded!');
+  sampleAlbums.forEach(function(element) {
+    renderAlbum(element);
+  });
 });
-
-
-
 
 
 // this function takes a single album and renders it to the page
@@ -87,7 +84,6 @@ function renderAlbum(album) {
                 </div>
                 <!-- end one album -->
   `)
-  $('#album').append(albumHtml);
+  $('#albums').prepend(albumHtml);
   console.log('The album is rendered!');
-
-}
+};
