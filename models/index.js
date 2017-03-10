@@ -8,4 +8,7 @@ mongoose.connect('mongodb://localhost/tunely');
 // each exports object has  keys representing each of our models.
 // This allows us to require the ENTIRE directory and get all of our models!
 
-module.exports.Album = require("./album.js");
+
+// capital "A" indicates it is a mongoose model
+var Album = require('./album');
+module.exports.Album = Album;
