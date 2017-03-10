@@ -2,6 +2,9 @@
  *
  * You may edit this file as you see fit.  Try to separate different components
  * into functions and objects as needed.
+
+
+ REPLACE WITH SOLUTION USING BACKTICKS. INDEX.HTML SHOULD NOT HAVE AN ALBUM HTML
  *
  */
 
@@ -48,5 +51,43 @@ $(document).ready(function() {
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
   console.log('rendering album:', album);
+    var albumHtml = (`
+              <!-- one album -->
+              <div class='row album' data-album-id='${album.id}'>
+                <div class='col-md-10 col-md-offset-1'>
+                  <div class='panel panel-default'>
+                    <div class='panel-body'>
+                    <!-- begin album internal row -->
+                      <div class='row'>
+                        <div class='col-md-3 col-xs-12 thumbnail album-art'>
+                           <img src='${album.image}' alt='album image'>
+                        </div>
+                        <div class='col-md-9 col-xs-12'>
+                          <ul class='list-group'>
+                            <li class='list-group-item'>
+                              <h4 class='inline-header'>Album Name:</h4>
+                              <span class='album-name'>${album.name}</span>
+                          </li>
+                            <li class='list-group-item'>
+                              <h4 class='inline-header'>Artist Name:</h4>
+                              <span class='artist-name'>${album.artistName}</span>
+                            </li>
+                         <li class='list-group-item'>
+                              <h4 class='inline-header'>Released date:</h4>
+                              <span class='album-name'>${album.releaseDate}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <!-- end of album internal row -->
+                    </div>
+                    <div class='panel-footer'>
+                    </div>
+                  </div>
+                </div>
+                <!-- end one album -->
+  `)
+  $('#album').append(albumHtml);
+  console.log('The album is rendered!');
 
 }
