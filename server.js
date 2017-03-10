@@ -28,14 +28,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 ///////////////////
 
 
-// GET ALBUMS TODO: CHANGE TO ALBUMS, not books
-// app.get('/api/books', function (req, res) {
-//   // send all books as JSON response
-//   console.log('books index');
-//   res.json(books);
-// });
-//
-
 
 // 1. GET ROUTES
 app.get('/', function (req, res) {
@@ -44,7 +36,14 @@ app.get('/', function (req, res) {
 });
 
 // 1. GET /api
-app.get('/api', controllers.api.index)
+app.get('/api', controllers.api.index);
+
+
+app.get('/api/albums', controllers.albums.index);
+
+//app.get('/api/albums/:id', controllers.albums.id);
+
+
 
 
 
